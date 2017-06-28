@@ -1,15 +1,6 @@
 Rails.application.routes.draw do
-  get 'articles/index'
-
-  get 'articles/new'
-
-  get 'articles/create'
-
-  get 'articles/edit'
-
-  get 'articles/update'
-
-  get 'articles/delete'
+  mount Attachinary::Engine => "/attachinary"
+  resources :articles
 
   devise_for :users
   root to: 'pages#home'

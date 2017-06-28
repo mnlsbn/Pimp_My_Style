@@ -28,3 +28,6 @@ group :development, :test do
 end
 
 gem 'cloudinary'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
