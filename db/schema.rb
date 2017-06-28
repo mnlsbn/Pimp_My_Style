@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628094651) do
+ActiveRecord::Schema.define(version: 20170628095332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "outfits", force: :cascade do |t|
+    t.string "name"
+    t.string "photo"
+    t.bigint "style_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["style_id"], name: "index_outfits_on_style_id"
+  end
 
   create_table "styles", force: :cascade do |t|
     t.string "name"
@@ -45,5 +54,6 @@ ActiveRecord::Schema.define(version: 20170628094651) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "outfits", "styles"
   add_foreign_key "styles", "users"
 end
