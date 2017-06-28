@@ -17,4 +17,9 @@ class ArticlesController < ApplicationController
 
   def delete
   end
+
+  private
+  def article_params
+  params.require(:article).permit(:name, :description, :photo, :price)
+end
 end
