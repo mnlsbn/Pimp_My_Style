@@ -1,17 +1,15 @@
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-6" style="height: 700px">
-      <% @articles.each do |article| %>
-        <h3><%= article.name %></h3>
-        <p><%= article.description %></p>
-        <p><%= article.price %></p>
-      <div class="col-sm-6">
+    <% @articles.each do |article| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+          <h3><%= article.name %></h3>
+          <p><%= article.description %></p>
+          <p><%= article.price %></p>
         <div class="menu text-center">
-          <%= cl_image_tag article.photo, width: 260, height: 170, crop: "fill" %>
+          <%= cl_image_tag article.photo.path, width: 200, height: 220, crop: "fill" %>
           <h4 class='menu text-center'><%= article.brand.name %></h4>
         </div>
       </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
