@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628143839) do
+ActiveRecord::Schema.define(version: 20170630132056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string "name"
     t.text "description"
     t.string "photo"
     t.float "price"
@@ -40,7 +39,7 @@ ActiveRecord::Schema.define(version: 20170628143839) do
     t.string "resource_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
   end
 
   create_table "brands", force: :cascade do |t|
@@ -63,8 +62,8 @@ ActiveRecord::Schema.define(version: 20170628143839) do
     t.bigint "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_orderarticles_on_article_id", using: :btree
-    t.index ["order_id"], name: "index_orderarticles_on_order_id", using: :btree
+    t.index ["article_id"], name: "index_orderarticles_on_article_id"
+    t.index ["order_id"], name: "index_orderarticles_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -72,7 +71,7 @@ ActiveRecord::Schema.define(version: 20170628143839) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "outfits", force: :cascade do |t|
@@ -81,7 +80,7 @@ ActiveRecord::Schema.define(version: 20170628143839) do
     t.bigint "style_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["style_id"], name: "index_outfits_on_style_id", using: :btree
+    t.index ["style_id"], name: "index_outfits_on_style_id"
   end
 
   create_table "styles", force: :cascade do |t|
